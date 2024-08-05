@@ -1,0 +1,242 @@
+/* App Styles */
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #323131;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #262528;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.heading {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem; /* 3xl */
+  color: cyan;
+  text-shadow: 0 0 0px rgba(0, 248, 248, 0.7), 0 0 10px rgba(72, 229, 229, 0.836), 0 0 15px rgba(0, 248, 248, 0.3);
+}
+
+.addTodo {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#show-finished {
+  color: white;
+  font-weight: 700;
+}
+
+.addTodo h2 {
+  font-size: 1.75rem; /* 2xl */
+  font-weight: bold;
+  color: #f6f6fa;
+}
+
+.addTodo .input-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.addTodo input {
+  width: 100%;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addTodo button {
+  background-color: #4f46e5;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.addTodo button:disabled {
+  background-color: #6d28d9;
+  cursor: not-allowed;
+}
+
+.addTodo button:hover:not(:disabled) {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.checkbox-container input {
+  margin-right: 0.75rem;
+}
+
+.divider {
+  height: 1px;
+  background-color: #333;
+  opacity: 0.2;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.todos {
+  margin: 0;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo.completed {
+  background-color: rgb(43, 255, 43);
+  color: white;
+}
+
+.todo.pending {
+  background-color: rgb(244, 244, 81);
+  color: black;
+}
+
+.todo-content {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  max-width: calc(100% - 50px); /* Adjust based on the space taken by other elements */
+  overflow: hidden;
+}
+
+.todo-content div {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.todo input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.todo .line-through {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.buttons button {
+  background-color: #4f46e5;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 0.375rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+}
+/* Responsive Styles */
+@media (max-width: 600px) {
+  body{
+    padding: 0;margin: 0;
+  }
+  .container {
+    width: 100vw; /* Take up the full viewport width */
+    height: 100vh;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+
+  .addTodo {
+    gap: 0.75rem;
+  }
+
+  .addTodo .input-container {
+    flex-direction: column;
+  }
+  .addTodo input {
+    width: 90%;
+  }
+
+  .addTodo button {
+    margin-top: 0.5rem;
+    width: 100%; /* Make button take up full width */
+    text-align: center; /* Center text inside button */
+  }
+
+  .todo {
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%; /* Make todo items take up full width */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+
+  .todo .todo-content {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; /* Make todo content take up full width */
+    overflow: hidden; /* Prevent horizontal scroll */
+  }
+
+  .todo-content div {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+  .buttons {
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+  }
+
+}
